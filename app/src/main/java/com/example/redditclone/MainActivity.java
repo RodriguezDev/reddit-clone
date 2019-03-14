@@ -21,6 +21,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Iterator;
 
 
@@ -64,11 +66,13 @@ public class MainActivity extends AppCompatActivity {
             // for every existing node when the activity is loaded
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 postAdapter.add( dataSnapshot.getValue(Post.class));
+                Collections.sort(posts);
                 postAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                Collections.sort(posts);
                 postAdapter.notifyDataSetChanged();
             }
 

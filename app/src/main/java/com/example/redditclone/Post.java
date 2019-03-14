@@ -1,6 +1,6 @@
 package com.example.redditclone;
 
-public class Post {
+public class Post implements Comparable<Post> {
     private String title, content, poster, key;
     private int score;
 
@@ -40,5 +40,10 @@ public class Post {
     }
 
     public String getKey() { return key; }
+
+    @Override
+    public int compareTo(Post p) {
+        return p.getScore() - score;
+    }
 
 }
