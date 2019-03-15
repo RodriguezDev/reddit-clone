@@ -4,51 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreateMessageActivity">
+    tools:context=".CreateCommentActivity">
 
     <Button
-        android:id="@+id/submitButton"
+        android:id="@+id/submitCommentButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="226dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:text="Submit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/messageEditText" />
+        app:layout_constraintTop_toBottomOf= "@+id/commentMessageEditText" />
 
     <Button
-        android:id="@+id/cancelButton"
+        android:id="@+id/cancelCommentButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="226dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="106dp"
         android:text="Cancel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/messageEditText" />
+        app:layout_constraintTop_toBottomOf= "@+id/commentMessageEditText" />
 
     <EditText
-        android:id="@+id/titleEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:hint="Title"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/messageEditText"
+        android:id="@+id/commentMessageEditText"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:gravity="top|start"
         android:inputType="textMultiLine"
-        android:hint="Enter message"
-        app:layout_constraintTop_toTopOf="@+id/titleEditText" />
+        android:hint="Enter comment"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </android.support.constraint.ConstraintLayout>

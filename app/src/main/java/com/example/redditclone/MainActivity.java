@@ -8,7 +8,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
 
 import android.widget.ListView;
 import android.widget.Toast;
@@ -21,7 +20,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
 
@@ -120,9 +118,10 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             FirebaseAuth.getInstance().signOut();
             Toast.makeText(MainActivity.this, "Logged out", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            finish();
         }
-
         return super.onOptionsItemSelected(item);
     }
+
+
 }

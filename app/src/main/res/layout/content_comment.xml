@@ -3,10 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".CommentActivity"
+    tools:showIn="@layout/activity_comment">
 
     <TextView
-        android:id="@+id/postTitle"
+        android:id="@+id/commentOpTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -19,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/postAuthor"
+        android:id="@+id/commentOpAuthor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -29,10 +32,10 @@
         android:textStyle="normal"
 
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf= "@+id/postTitle" />
+        app:layout_constraintTop_toBottomOf= "@+id/commentOpTitle" />
 
     <TextView
-        android:id="@+id/postBody"
+        android:id="@+id/commentOpBody"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -42,52 +45,63 @@
         android:textStyle="normal"
 
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/postAuthor" />
+        app:layout_constraintTop_toBottomOf="@+id/commentOpAuthor" />
 
     <Button style="@style/Widget.AppCompat.Button.Borderless"
-        android:id="@+id/upvote"
+        android:id="@+id/commentOpUpvote"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:textSize="24dp"
         android:text="+"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/postBody" />
+        app:layout_constraintTop_toBottomOf="@+id/commentOpBody" />
 
-    <Button
-        android:id="@+id/downvote"
-        style="@style/Widget.AppCompat.Button.Borderless"
+    <Button style="@style/Widget.AppCompat.Button.Borderless"
+        android:id="@+id/commentOpDownvote"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="-"
         android:textSize="24dp"
-        app:layout_constraintEnd_toStartOf="@+id/score"
-        app:layout_constraintTop_toBottomOf="@+id/postBody" />
+        app:layout_constraintEnd_toStartOf="@+id/commentOpScore"
+        app:layout_constraintTop_toBottomOf="@+id/commentOpBody" />
 
-    <Button
-        android:id="@+id/deletePost"
-        style="@style/Widget.AppCompat.Button.Borderless"
+    <Button style="@style/Widget.AppCompat.Button.Borderless"
+        android:id="@+id/commentOpDelete"
         android:layout_width="96dp"
         android:layout_height="48dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="8dp"
         android:text="delete"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/postBody" />
+        app:layout_constraintTop_toBottomOf="@+id/commentOpBody" />
 
     <TextView
-        android:id="@+id/score"
+        android:id="@+id/commentOpScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="18dp"
         android:layout_marginEnd="8dp"
         android:text="9"
         android:textSize="24dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/upvote"
-        app:layout_constraintTop_toBottomOf="@+id/postBody" />
+        app:layout_constraintEnd_toStartOf="@+id/commentOpUpvote"
+        app:layout_constraintTop_toBottomOf="@+id/commentOpBody" />
+
+    <ListView
+        android:id="@+id/commentList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/commentOpUpvote" />
 
 </android.support.constraint.ConstraintLayout>

@@ -1,28 +1,40 @@
 package com.example.redditclone;
 
-public class Post implements Comparable<Post> {
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.io.Serializable;
+
+public class Post implements Comparable<Post>, Serializable {
     private String title, content, poster, key;
     private int score;
 
-    public Post() {
+    public Post() { }
 
-    }
-
-    public Post(String newT, String newC, String newP, String newK) {
+    public Post(String newT, String newC, String newP, String newK, int newS) {
         title = newT;
         content = newC;
         poster = newP;
-        score = 0;
+        score = newS;
         key = newK;
 
     }
 
     public void upvote() {
         score++;
+        DatabaseReference myRef = FirebaseDatabase.getInstance().getReference("Posts");
+        myRef.child(key).setValue(this);
     }
 
     public void downvote() {
         score--;
+        DatabaseReference myRef = FirebaseDatabase.getInstance().getReference("Posts");
+        myRef.child(key).setValue(this);
+    }
+
+    public void delete() {
+        DatabaseReference myRef = FirebaseDatabase.getInstance().getReference("Posts");
+        myRef.child(key).removeValue();
     }
 
     public String getTitle() { return title; }
@@ -45,5 +57,4 @@ public class Post implements Comparable<Post> {
     public int compareTo(Post p) {
         return p.getScore() - score;
     }
-
 }

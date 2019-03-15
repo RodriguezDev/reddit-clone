@@ -58,7 +58,7 @@ public class CreateMessageActivity extends AppCompatActivity {
 
         if (postText.length() > 0 && titleText.length() > 0) {
             String key = myRef.push().getKey();
-            Post newPost = new Post(titleText, postText, user.getEmail(), key);
+            Post newPost = new Post(titleText, postText, user.getEmail(), key, 0);
             myRef.child(key).setValue(newPost);
 
             Toast.makeText(CreateMessageActivity.this, "Sent", Toast.LENGTH_SHORT).show();
